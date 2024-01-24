@@ -1,11 +1,12 @@
 {
   "name": "e-commerce-app",
   "version": "1.0.0",
+  "type": "commonjs",
   "description": "",
-  "main": "index.js",
+  "main": "index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon server.js"
+    "dev": "nodemon index.ts"
   },
   "keywords": [],
   "author": "",
@@ -13,15 +14,25 @@
   "dependencies": {
     "@graphql-tools/load-files": "^6.6.1",
     "@graphql-tools/schema": "^10.0.0",
+    "@prisma/client": "^5.4.2",
+    "apollo-server-express": "^3.12.1",
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
-    "express-graphql": "^0.12.0",
     "graphql": "^15.8.0",
+    "graphql-subscriptions": "^2.0.0",
     "graphql-tools": "^7.0.5",
+    "graphql-ws": "^5.14.0",
     "mongodb": "^5.6.0",
     "morgan": "^1.10.0",
-    "nodemon": "^2.0.22",
+    "prisma": "^5.4.2",
     "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "@types/morgan": "^1.9.7",
+    "@types/node": "^20.8.7",
+    "nodemon": "^3.0.1",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.2.2"
   }
 }
