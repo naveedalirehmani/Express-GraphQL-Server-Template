@@ -1,0 +1,29 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  user_id    Int      @id @default(autoincrement()) 
+  username   String   @db.VarChar(50)
+  email      String   @db.VarChar(100) @unique
+  bio        String? // use ? to make a field nullable
+  country    String   @db.VarChar(50)
+  rooms      Room[]
+}
+
+model Room {
+  room_id          Int      @id @default(autoincrement())
+  room_name        String   @db.VarChar(100)
+  owner_id         Int
+  room_description String?
+  created_date     DateTime
+  owner            User     @relation(fields: [owner_id], references: [user_id])
+}
